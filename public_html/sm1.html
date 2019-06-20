@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en-US">
+    <head>
+        <style>
+            .button {
+                background-color: #1abc9c;
+                border: none;
+                color: white;
+                padding: 50px 50px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 10px 20px;
+                cursor: pointer;
+            }
+        </style>
+        
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html">
+        <title>EMS</title>
+        <meta name="author" content="Jake Rocheleau">
+        <link rel="shortcut icon" href="http://static.tmimgcdn.com/img/favicon.ico">
+        <link rel="icon" href="http://static.tmimgcdn.com/img/favicon.ico">
+        <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
+        <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="flex.css">
+        <link rel="stylesheet" type="text/css" href="main.css">
+          <link href='http://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
+    
+    <link rel="stylesheet" href="css/normalize.css">
+
+    
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+
+    <body>
+            <nav>
+            <h1>EXAM MANAGEMENT SYSTEM</h1>
+            <div class="wrapper">
+                <ul id="menu" class="clearfix">
+                    <li><a href="main.html">Home</a></li>
+
+                    <li><a href="#">EXAMS</a>
+                        <ul>
+                            <li class="purple"><a href="#">FIRST YEAR</a>
+                                <ul>
+                                    <li><a href="fm1.html">Monthly 1</a></li>
+                                    <li><a href="fm2.html">Monthly 2</a></li>
+                                    <li><a href="fm3.html">Monthly 3</a></li>
+                                </ul>
+                            </li>
+                            <li class="green"><a href="#">SECOND YEAR</a>
+                                <ul>
+                                    <li><a href="sm1.html">Monthly 1</a></li>
+                                    <li><a href="sm2.html">Monthly 2</a></li>
+                                    <li><a href="sm2.html">Monthly 3</a></li>
+
+                                </ul>
+                            </li>
+                            <li class="aqua"><a href="#">THIRD YEAR</a>
+                                <ul>
+                                    <li><a href="tm1.html">Monthly 1</a></li>
+                                    <li><a href="tm2.html">Monthly 2</a></li>
+                                    <li><a href="tm3.html">Monthly 3</a></li>
+                                </ul>
+                            </li>
+                            <li class="red"><a href="#">FOURTH YEAR</a>
+                                <ul>
+                                    <li><a href="ffm1.html">Monthly 1</a></li>
+                                    <li><a href="ffm2.html">Monthly 2</a></li>
+                                    <li><a href="ffm3.html">Monthly 3</a></li>
+
+                                </ul>
+                            </li>
+                            <li class="blue"><a href="#">SEMESTER</a>
+                                <ul>
+                                    <li class="red"><a href="#">ODD</a></li>
+                                    <li><a href="#">EVEN</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <li><a href="#">INFO</a>
+                        <ul>
+                            <li><a href="staffdb.html">Staff Databases</a></li>
+                            <li><a href="newreg.html">New Registration</a></li>
+                            <li><a href="announce.html">Announcement</a></li>
+                            <li><a href="#"></a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>^
+       
+
+        <br>
+        <br><a href="c1.html" class="button"><input type="button" class="button" value="C1 BLOCK"></a>
+        <a href="c2.html" class="button"><input type="button" class="button" value="C2 BLOCK"></a>
+        <a href="c3.html" class="button"><input type="button" class="button" value="C3 BLOCK"></a><br>
+        <a href="c4.html" class="button"><input type="button" class="button" value="C4 BLOCK"></a>
+        <a href="c5.html" class="button"><input type="button" class="button" value="C5 BLOCK"></a>
+        <a href="c6.html" class="button"><input type="button" class="button" value="C6 BLOCK"></a>
+
+
+        <script type="text/javascript">
+            $(function () {
+                $('a[href="#"]').on('click', function (e) {
+                    e.preventDefault();
+                });
+
+                $('#menu > li').on('mouseover', function (e) {
+                    $(this).find("ul:first").show();
+                    $(this).find('> a').addClass('active');
+                }).on('mouseout', function (e) {
+                    $(this).find("ul:first").hide();
+                    $(this).find('> a').removeClass('active');
+                });
+
+                $('#menu li li').on('mouseover', function (e) {
+                    if ($(this).has('ul').length) {
+                        $(this).parent().addClass('expanded');
+                    }
+                    $('ul:first', this).parent().find('> a').addClass('active');
+                    $('ul:first', this).show();
+                }).on('mouseout', function (e) {
+                    $(this).parent().removeClass('expanded');
+                    $('ul:first', this).parent().find('> a').removeClass('active');
+                    $('ul:first', this).hide();
+                });
+            });
+        </script>
+
+
+
+    </body>
+</html>

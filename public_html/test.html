@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page Title</title>
+        <script type="text/javascript" src="test.js"></script>
+        <style>
+            body { font-family: arial; }
+            h2 { font-weight: bold; }
+            div {  padding: 5px; margin: 5px; border: black 1px solid; }
+            p, a { font-size: .8em; }
+            ul { padding-bottom: 10px; }
+            .container {  width: 125px; min-height: 50px; background-color: #AAA;}
+            .high { background-color: red; }
+            .trash { background-color: #000;  }
+            .item { background-color: #DDD; cursor: move; }
+            .item input { width: 100px; }
+            #main { float: left; }
+            #results { margin-left: 175px; width: 150px; }
+
+
+
+        </style>
+    </head>
+    <body>
+        <div id="main">
+            <h2>High Priority Tasks</h2>
+            <div class="container high" data-bind="template: { name: 'taskTmpl', foreach: highPriorityTasks, templateOptions: { parentList: highPriorityTasks} }, sortableList: highPriorityTasks"></div>
+
+            <h2>Tasks</h2>
+            <div class="container" data-bind="template: { name: 'taskTmpl', foreach: normalPriorityTasks, templateOptions: { parentList: normalPriorityTasks} }, sortableList: normalPriorityTasks"></div>
+
+            <a href="#" data-bind="click: addTask">Add Task</a>
+            <hr />
+            <h2>Trash</h2>
+            <div class="container trash" data-bind="sortableList: trash"></div>
+
+            <script id="taskTmpl" type="text/html">
+                <div class="item" data-bind="sortableItem: { item: $data, parentList: $item.parentList }" >
+                    <a href="#" data-bind="text: name, click: function() { viewModel.selectTask($data); }, visible: $data !== viewModel.selectedTask()"></a>
+                    <input data-bind="value: name, visibleAndSelect: $data === viewModel.selectedTask(), event: { blur: function() { viewModel.selectTask(''); } }" />
+                   
+                </div>
+            </script>
+            
+            
+            
+
+        </div>    
+
+        <div id="results">
+            <h2>High Priority Tasks</h2>
+            <ul data-bind="template: { name: 'resultTmpl', foreach: highPriorityTasks }"></ul>
+            <h2>Tasks</h2> 
+            <ul data-bind="template: { name: 'resultTmpl', foreach: normalPriorityTasks }"></ul>
+        </div>
+
+        <script id="resultTmpl" type="text/html">
+        <li data-bind="text: name"></li>
+    </script>
+         
+    
+
+
+
+
+</body>
+</html>
+
